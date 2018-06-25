@@ -1,0 +1,13 @@
+plugins {
+    id 'kotlin-platform-common' version '1.2.60-dev-857'
+}
+repositories {
+    maven {     url 'https://teamcity.jetbrains.com/guestAuth/app/rest/builds/buildType:(id:Kotlin_dev_Compiler),number:1.2.60-dev-857,branch:default:any/artifacts/content/maven/' }
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-common"
+    testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common"
+    testCompile "org.jetbrains.kotlin:kotlin-test-common"
+}
