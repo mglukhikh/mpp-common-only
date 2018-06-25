@@ -1,0 +1,26 @@
+plugins {
+    id 'kotlin-platform-jvm'
+}
+
+version 'unspecified'
+
+repositories {
+    maven {     url 'https://teamcity.jetbrains.com/guestAuth/app/rest/builds/buildType:(id:Kotlin_dev_Compiler),number:1.2.60-dev-857,branch:default:any/artifacts/content/maven/' }
+    mavenCentral()
+}
+
+dependencies {
+    expectedBy project(":mpp-common-only-common")
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testCompile "junit:junit:4.12"
+    testCompile "org.jetbrains.kotlin:kotlin-test"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+sourceCompatibility = "1.8"

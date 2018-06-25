@@ -4,6 +4,10 @@ pluginManagement {
             if (requested.id.id == "kotlin-platform-common") {
                 useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
             }
+
+            if (requested.id.id == "kotlin-platform-jvm") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
         }
     }
 
@@ -17,8 +21,18 @@ pluginManagement {
         maven {
             url 'https://plugins.gradle.org/m2/'
         }
+
+        maven {
+            url 'https://teamcity.jetbrains.com/guestAuth/app/rest/builds/buildType:(id:Kotlin_dev_Compiler),number:1.2.60-dev-857,branch:default:any/artifacts/content/maven/'
+        }
+
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
     }
 }
 rootProject.name = 'mpp-common-only'
 
 include 'mpp-common-only-common'
+include 'mpp-common-only-common:mpp-common-only-dummy-jvm'
+
